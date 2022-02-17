@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Quicksand&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0.6em 1em;
+  border-radius: 3px;
+  background-color: #03bb56;
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.save {
+  background-color: #0f65d4;
+}
+
+h1.logo {
+  font-family: 'Comforter', cursive;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  padding: 0.5rem;
+  appearance: none;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: #eee;
+}
+
+a:link {
+  color: #03bb56;
+}
+
+a:visited {
+  color: #03bb56;
+}
+
+a:hover {
+  color: #0f65d4;
+}
+
+a:active {
+  color: #03bb56;
+}

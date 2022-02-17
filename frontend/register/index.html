@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../forms.css" />
+    <title>Sketch - Register</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="logo" onclick="location.href = '/'">sketch</h1>
+      <form>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" />
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+        <button class="" id="submit">Register</button>
+      </form>
+      <p class="error hide" id="error"></p>
+      <p>Already have an account?</p>
+      <a href="/login">Log in</a>
+    </main>
+
+    <script src="register.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+main,
+section,
+article.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section,
+article.buttons {
+  gap: 1rem;
+}
+
+p {
+  margin-top: 5rem;
+}
+
+article.buttons {
+  margin-bottom: 5rem;
+}
+
+h1.logo {
+  margin-top: 3rem;
+  font-size: 7rem;
+}
+
+.hide {
+  display: none;
+}
