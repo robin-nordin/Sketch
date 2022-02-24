@@ -5,8 +5,9 @@ main {
 }
 
 h1.logo {
-  margin-top: 12rem;
+  margin-top: 8rem;
   margin-bottom: 2rem;
+  font-size: 80px;
 }
 
 .wrapper {
@@ -17,6 +18,7 @@ h1.logo {
   border: 1px solid rgb(211, 211, 211);
   border-radius: 5px;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 form {
