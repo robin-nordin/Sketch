@@ -11,16 +11,21 @@
   <body>
     <main>
       <h1 class="logo" onclick="location.href = '/'">sketch</h1>
-      <form>
-        <label for="email">E-mail</label>
-        <input type="email" id="email" />
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-        <button class="" id="submit">Log in</button>
-      </form>
+      <section class="wrapper">
+        <form>
+          <h3>Login</h3>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" />
+          <label for="password">Password</label>
+          <input type="password" id="password" />
+          <button class="" id="submit">Log in</button>
+        </form>
+      </section>
       <p class="error hide" id="error"></p>
       <p>Don't have an account?</p>
       <a href="/register">Sign up</a>
+
+      <button class="back-button" onclick="location.href = '/'">Back</button>
     </main>
 
     <script src="login.js"></script>
