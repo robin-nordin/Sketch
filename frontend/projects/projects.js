@@ -1,32 +1,31 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.token;
-  if (!token) return (location.href = '/login'); // If you're trying to go to projects w/o being logged in you get redirected to login
+  if (!token) return (location.href = '/login');
 
-  const response = await fetch('/api/projects', { headers: { Authorization: `Bearer ${token}` } }); // If you have managed to log in it will render your projects tied to that email
+  const response = await fetch('/api/projects', { headers: { Authorization: `Bearer ${token}` } });
   const data = await response.json();
   if (data.success) {
     renderProjects(data.data);
   }
 });
 
-const wrapper = document.querySelector('.wrapper'); // Creates wrapper in parent projects
+const wrapper = document.querySelector('.wrapper');
 function renderProjects(data) {
   data.forEach((element) => {
-    const project = document.createElement('div'); // Creates wrapper for each project
+    const project = document.createElement('div');
 
-    const image = document.createElement('img'); // creates img element for canvas
+    const image = document.createElement('img');
     image.src = element.canvas;
 
     const info = document.createElement('div');
 
-    const span = document.createElement('span'); // Creates span element for title text
+    const span = document.createElement('span');
     span.innerText = element.title;
 
-    const button = document.createElement('button'); // Creates button element for edit button
+    const button = document.createElement('button');
     button.innerText = 'Edit';
 
     button.addEventListener('click', () => {
-      // Grabs selected project from LS with ID and canvas and redirects back to canvas with image
       localStorage.id = element._id;
       localStorage.canvas = element.canvas;
       localStorage.title = element.title;

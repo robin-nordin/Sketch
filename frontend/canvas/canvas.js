@@ -1,20 +1,16 @@
 const canvas = document.getElementById('canvas');
 const color = document.getElementById('color');
-const saveBtn = document.querySelector('.save'); // When button is clicked, canvas is saved to database
+const saveBtn = document.querySelector('.save');
 
 let currentColor = 'rgb(0,0,0)';
 
-// makes sizing of canvas
 canvas.height = 600;
 canvas.width = 1200;
 const ctx = canvas.getContext('2d');
 
-// TODO -  HANDLE TITLE
 
-// Grabs image from LS and inserts it in to canvas
 document.addEventListener('DOMContentLoaded', () => {
   if (!localStorage.canvas) return;
-  console.log(localStorage.canvas);
   const image = new Image();
   image.src = localStorage.canvas;
   image.addEventListener('load', () => {
@@ -23,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.title').value = localStorage.title;
 });
 
-// makes BG of canvas white so when you save the image it has white BG
 ctx.fillStyle = '#ffffff';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -34,14 +29,6 @@ ctx.lineWidth = 5;
 currentSize = 5;
 
 let draw = false;
-
-// button handlers
-// let colorInput = document.querySelector('#color');
-// let hexInput = document.querySelector('#hex');
-// colorInput.addEventListener('input', () => {
-//   let color = colorInput.value;
-//   hexInput.value = color;
-// });
 
 document.getElementById('controlSize').addEventListener('input', function () {
   const spanElement = document.getElementById('showSize');
@@ -70,7 +57,6 @@ clearBtn.addEventListener('click', () => {
   document.querySelector('.title').value = '';
 });
 
-// Save drawing to database
 saveBtn.addEventListener('click', async () => {
   const titleElement = document.querySelector('.title');
   const imgData = canvas.toDataURL();
@@ -101,27 +87,23 @@ saveBtn.addEventListener('click', async () => {
 function displayBanner() {
   const element = document.querySelector('.canvasInfo');
   element.classList.remove('fade');
-  void element.offsetWidth; // Required to restart a CSS animation
+  void element.offsetWidth;
   element.classList.add('fade');
 }
 
-// Downloading drawing as image
 let downloadBtn = document.querySelector('.download');
 downloadBtn.addEventListener('click', () => {
-  let data = canvas.toDataURL('image/jpeg', 1.0); // jpeg instead of png makes it not a vector
+  let data = canvas.toDataURL('image/jpeg', 1.0);
   let a = document.createElement('a');
   a.href = data;
 
-  // what ever name you specify here the image will be saved as that name. Hardcoded name.
   a.download = 'sketch.jpg';
   a.click();
 });
 
-// Drawing functionality
-// changed window.add to canvas.add because window targets everything and we only want to target canvas
 canvas.addEventListener('mousedown', (e) => (draw = true));
 canvas.addEventListener('mouseup', (e) => (draw = false));
-canvas.addEventListener('mouseleave', (e) => (draw = false)); // when mouse leaves canvas it stops drawing
+canvas.addEventListener('mouseleave', (e) => (draw = false));
 canvas.addEventListener('mousemove', (e) => {
   if (prevX == null || prevY == null || !draw) {
     prevX = e.offsetX;
@@ -135,8 +117,6 @@ canvas.addEventListener('mousemove', (e) => {
 
   let currentX = e.offsetX;
   let currentY = e.offsetY;
-  // console.log('x', currentX);
-  // console.log('y', currentY);
 
   ctx.beginPath();
   ctx.moveTo(prevX, prevY);
@@ -147,8 +127,6 @@ canvas.addEventListener('mousemove', (e) => {
   prevY = currentY;
 });
 
-// Login functionality
-// Grabs the button text and changes it to login or logout depending on what page you are on
 const login = document.querySelector('#login');
 if (localStorage.token) {
   login.innerText = 'Logout';
@@ -157,13 +135,11 @@ if (localStorage.token) {
   login.innerText = 'Login';
 }
 
-// When button is pressed user is removed from localstorage but still remains in database
 login.addEventListener('click', () => {
   if (localStorage.token) {
     delete localStorage.token;
     delete localStorage.id;
     delete localStorage.canvas;
-    // Button text changes back to login and you are redirected to login
     location.href = '/';
   } else {
     location.href = '/login';
